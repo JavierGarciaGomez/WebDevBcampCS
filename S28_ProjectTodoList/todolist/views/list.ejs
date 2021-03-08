@@ -1,0 +1,35 @@
+<!-- 265, 266, 268, 270, 271, 342, 343, 345 -->
+<%- include("header") -%>
+
+    <!-- 268, 270, 271 -->
+    <div class="box" id="heading">
+        <h1>
+            <%= listTitle %>
+        </h1>
+    </div>
+
+    <!-- 270 -->
+    <div class="box">
+        <% items.forEach(item=> {%>
+            <!-- 345 -->
+            <form action="/delete" method="post">
+                <div class="item">
+                    <!-- onchange submit -->
+                    <input type="checkbox" name="checkbox" value="<%= item._id %>" id="" onChange="this.form.submit()">
+                    <p>
+                        <%= item.name %>
+                    </p>
+                </div>
+                <input type="hidden" name="listName" value="<%=listTitle %>">
+            </form>
+            </form>
+            <% });%>
+                <form class="item" action="/" method="post">
+                    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                    <!-- 271 -->
+                    <button type:"submit" name="listName" value=<%=listTitle %>>+</button>
+                </form>
+    </div>
+
+
+    <%- include("footer") -%>

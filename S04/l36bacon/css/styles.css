@@ -1,0 +1,18 @@
+h1 {
+    font-size: 40px;
+    color: red;
+
+}
+
+img {
+    background-color: red;
+    height: 100px;
+}
+
+.broccoli {
+    background-color: green;
+}
+
+.bacon:hover {
+    background-color: purple;
+}

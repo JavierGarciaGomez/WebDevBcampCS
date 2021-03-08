@@ -1,0 +1,50 @@
+:root {
+    --main-color: #a6f6f1;
+    --secondary-color: #41aea9;
+    --tertiary-color: #213e3b;
+}
+
+body {
+    background-color: var(--main-color);
+    color: var(--tertiary-color);
+    background-color: red 1px solid;
+    text-align: center;
+    font-family: 'Merriweather';
+}
+
+h1 {}
+
+.top-container {
+    padding-top: 100px;
+    position: relative;
+}
+
+.middle-container {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+}
+
+.bottom-container {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+}
+
+.top-cloud {
+    position: absolute;
+    right: 300px;
+    top: 50px;
+}
+
+.bottom-cloud {
+    position: absolute;
+    left: 300px;
+    bottom: 300px;
+}
+
+.bottom-container {
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+}

@@ -1,0 +1,6 @@
+319-Create a table
+320-Insert into a table
+321-Queries
+322-Update and alter table
+323-Delete
+324-Foreign keys, joins, ecc

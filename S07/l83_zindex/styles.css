@@ -1,0 +1,24 @@
+div {
+    height: 100px;
+    width: 100px;
+    border: 1px solid;
+    position: absolute;
+}
+
+.red {
+    background-color: red;
+    z-index: 1;
+
+    margin-left: 1rem;
+}
+
+.blue {
+    background-color: blue;
+    margin-left: 2rem;
+}
+
+
+.yellow {
+    background-color: yellow;
+    margin-left: 3rem;
+}

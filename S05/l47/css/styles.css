@@ -1,0 +1,66 @@
+:root {
+    --main-color: #a6f6f1;
+    --secondary-color: #41aea9;
+    --tertiary-color: #213e3b;
+}
+
+body {
+    margin: 0;
+}
+
+div {
+    margin: 0;
+}
+
+.green {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    position: absolute;
+    top: 25px;
+    z-index: 1;
+}
+
+.brown {
+    height: 100px;
+    width: 100px;
+    position: relative;
+
+
+    background-color: black;
+
+}
+
+.red {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+}
+
+.blue {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    border: none;
+    margin-left: -4px;
+}
+
+.orange {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-color: orange;
+    border: none;
+    margin-left: -4px;
+}
+
+.cyan {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    background-color: cyan;
+    font-size: 0;
+    margin-left: -4px;
+    border: none;
+}

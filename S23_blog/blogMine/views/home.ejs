@@ -1,0 +1,24 @@
+<!-- 276, 278, 280, 282, 298, 303, 316-->
+<!-- 280, 282 -->
+<%- include("partials/header") -%>
+
+    <!-- 276, 278 -->
+    <h1>Home</h1>
+    <p>
+        <%=homeStartingContent %>
+    </p>
+
+    <!-- 298 -->
+    <% for(post of posts){ %>
+        <h2>
+            <%= post.title %>
+        </h2>
+        <p>
+            <% let shortenedPost=(post.post).slice(0, 100)+"..."; %>
+                <%= shortenedPost %>
+                    <a href="/posts/<%= post.title %>">Read More</a>
+        </p>
+        <%} %>
+
+            <!-- 280, 282 -->
+            <%- include("partials/footer") -%>

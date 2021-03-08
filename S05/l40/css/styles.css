@@ -1,0 +1,19 @@
+:root {
+    --main-color: #a6f6f1;
+    --secondary-color: #41aea9;
+    --tertiary-color: #213e3b;
+}
+
+body {
+    background-color: var(--main-color);
+    color: var(--tertiary-color);
+    margin: 100px;
+    background-color: red 1px solid;
+}
+
+hr {
+    border-style: dotted none none none;
+    border-color: var(--secondary-color);
+    border-width: 5px;
+    width: 15%;
+}

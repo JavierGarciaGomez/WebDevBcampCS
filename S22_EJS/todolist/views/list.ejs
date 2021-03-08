@@ -1,0 +1,54 @@
+<!-- 265, 266, 268, 270, 271 (changed to header.ejs) -->
+<%- include("header") -%>
+
+    <!-- 268, 270, 271 -->
+    <div class="box" id="heading">
+        <h1>
+            <%= listTitle %>
+        </h1>
+        <!-- changed 271 -->
+        <%if (false) {%>
+            <h1> It's a <%= day %>
+            </h1>
+            <% }%>
+    </div>
+
+    <!-- 270 -->
+    <div class="box">
+        <% for(var i=0; i<items.length; i++){ %>
+            <div class="item">
+                <input type="checkbox" name="" id="">
+                <p>
+                    <%= items[i] %>
+                </p>
+            </div>
+            <% }%>
+                <form class="item" action="/" method="post">
+                    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                    <!-- 271 -->
+                    <button type:"submit" name="listName" value=<%=listTitle %>>+</button>
+                </form>
+    </div>
+
+    <!-- 270 -->
+
+
+
+
+
+
+    <!-- Previous to 268 lesson -->
+    <%if (false) {%>
+        <!-- 267 control flow -->
+        <% if (day==="Weekend" ) {%>
+            <h1 class="purple-txt"> It's a <%= day %>
+            </h1>
+            <% } else { %>
+                <h1 class="grey-txt"> It's a <%= day %>
+                </h1>
+                <% } %>
+
+                    <div class="test">GHAAA</div>
+                    <%}%>
+
+                        <%- include("footer") -%>

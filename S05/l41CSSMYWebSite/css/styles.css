@@ -1,0 +1,50 @@
+:root {
+    --main-color: #a6f6f1;
+    --secondary-color: #41aea9;
+    --tertiary-color: #213e3b;
+}
+
+body {
+    background-color: var(--main-color);
+    color: var(--tertiary-color);
+    margin: 0;
+}
+
+hr {
+    border-style: dotted none none none;
+    border-color: var(--secondary-color);
+    border-width: 5px;
+    width: 15%;
+}
+
+table {
+    margin: 0 auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+.top-container {
+    width: 200px;
+    height: 200px;
+    margin: 0;
+    padding: 20px;
+    border: 10px solid;
+}
+
+.middle-container {
+    background-color: red;
+    height: 200px;
+    width: 200px;
+    margin-left: 260px;
+    border: 20px solid;
+
+}
+
+.bottom-container {
+    background-color: blue;
+    height: 200px;
+    border: 10px solid;
+    margin-left: 500px;
+}

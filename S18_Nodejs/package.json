@@ -1,0 +1,14 @@
+{
+  "name": "s17_nodejs",
+  "version": "1.0.0",
+  "description": "This is an intro to node a project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Javier García",
+  "license": "ISC",
+  "dependencies": {
+    "superheroes": "^3.0.0"
+  }
+}
