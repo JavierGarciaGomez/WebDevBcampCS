@@ -1,0 +1,99 @@
+/* Lesson 70-72 universal element selectors 
+lesson 71 id selector
+
+Selectors: 
+* - all
+h1, h2 - selectors list
+#idName - select id
+.className - select class
+
+*/
+
+h3,h4{
+	color: slateblue
+}
+#logout {
+	background-color: purple;
+}
+
+
+.className {
+	color: green;
+}
+
+
+/* Exercise 9 */
+/* Make all LI's blue */
+li{
+	color: blue;
+}
+
+/* Make everything with the class of 'done' grey*/
+.done {
+	color:grey;
+}
+
+/* Make the element with the id of 'clear' have a red BG and white text */
+#clear{
+	color:white;
+	background-color: red;
+}
+
+
+/* Lesson 73
+
+Selectors: 
+.post a - descendant selector
+h1 + p - adjacent selector
+div > li - direct child
+input[type="text"] - attribute selector
+PSEUDO CLASSES
+	:active
+	:checked
+	:first
+	:...
+PSEUDO ELEMENTS
+	::after
+	::before
+	::first-letter
+	::first-line
+	::selection
+CASCADE
+	Last overrides before
+SPECIFITY
+	id>class>element
+	specifity calculator
+	
+
+*/
+
+/*Exercise 10*/
+header a {
+	font-size: 30px;
+	color: teal;
+}
+
+#dislikes a{
+	font-weight: bold;
+	color:red;
+}
+
+h3 + h5 {
+	background-color: green;
+}
+
+ol>li{
+	background-color: yellow;
+}
+
+/*77*/
+
+li::first-letter{
+	background-color: purple;
+}
+
+li::selection{
+	background-color: orange;
+}
+
+

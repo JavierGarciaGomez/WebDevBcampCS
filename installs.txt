@@ -1,0 +1,15 @@
+nodemon app.js
+npm i express mongoose ejs method-override ejs-mate joi
+cookie-parser
+express-session
+connect-flash
+bcrypt
+passport passport-local passport-local-mongoose
+multer
+
+npm i express mongoose ejs method-override ejs-mate joi cookie-parser cookie-parser express-session connect-flash bcrypt passport passport-local passport-local-mongoose multer
+
+
+Free code camp 3000 hours
+https://www.freecodecamp.org/news/i-completed-the-entire-freecodecamp-curriculum-in-a-month-while-recording-everything/
+Projects and videos

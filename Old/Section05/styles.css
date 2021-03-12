@@ -1,0 +1,85 @@
+li{
+	color: red;
+}
+
+li{
+	color: red;
+}
+
+/*45*/
+
+#colorName{
+	color: olive;
+}
+
+#hex{
+	color: #CD5C5C;
+} 
+
+#rgb{
+	color: rgb(0, 255, 255);
+} 
+
+#rgba{
+	color: rgba(0, 255, 255, .5);
+} 
+
+/*46*/
+body {
+	
+	background: url(https://www.chrishazemusic.com/wp-content/uploads/2018/02/Website-Background-scaled.jpg);
+	/*background-repeat: repeat;*/
+	background-size: cover;
+}
+
+
+
+#bgColor {
+	background-color: darkgrey;
+	border-color: orange;
+	border-width: 10px;
+	border-style: dashed;
+
+	/*all border attributes in one line*/
+	border: 2px dashed purple;
+}
+
+/*48 and 50 selectors*/
+/*element selectors are used above*/
+
+#idTest{
+	background: yellow;
+}
+
+.classTest{
+	background: pink;
+	text-decoration: line-through;
+}
+
+* {
+	/*border: 1px solid lightgrey;*/
+}
+
+ul li a {
+	border: 5px solid orange;
+}
+
+/*or h5 + p*/
+h5 + #idAdj {
+	background-color: green;
+}
+
+a[href="http://www.facebook.com"]{
+	background-color: purple;	
+}
+
+li:nth-of-type(6){
+	background-color: green;
+}
+
+/*for even*/
+
+
+li:nth-of-type(even){
+	background-color: blue;
+}

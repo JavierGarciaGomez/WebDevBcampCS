@@ -1,0 +1,56 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+h1 {
+  text-align: center;
+}
+#container {
+  background-color: #003049;
+  width: 90%;
+  height: 500px;
+  margin: 0 auto;
+  border: 5px solid #003049;
+
+  /* 103 */
+  display: flex;
+  /* row, row-reverse, column, column-reverse */
+  flex-direction: row;
+
+  /* 104 */
+  /* flex-start, flex-send, center, space-between, space-around, space-evenly */
+  justify-content: center;
+
+  /* 105 */
+  flex-wrap: wrap;
+  /* 106 */
+  /* flex-start, flex-end, center, baseline */
+  align-items: space-around;
+  /* 107 */
+  /* Just works with wrap. Control the space between the columns or rows */
+  /* space-between, space-between, center, flex-start, flex-end */
+  /* align-content: center; */
+
+  /* 108 */
+  flex-wrap: nowrap;
+}
+
+/* 103 */
+#container div {
+  width: 1000px;
+  height: 100px;
+  font-size: 72px;
+  /* padding: auto auto; */
+  text-align: center;
+  /* 108 */
+  /* flex-basis: 13%; */
+  /* 110: flex shorthand */
+  flex: 30% 1 1;
+}
+
+/* 107 */
+div:nth-of-type(3) {
+  align-self: center;
+  /* 109 */
+  /* flex-grow: 0.5; */
+  /* flex-shrink: 1.1; */
+}

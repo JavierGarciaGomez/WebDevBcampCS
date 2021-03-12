@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Basics</title>
+</head>
+
+<body>
+    <h1>Events</h1>
+    <button onclick="alert('you clicked me!'); alert('stop clicking')">Click Me!</button>
+
+    <button id="v2">Click Me (2nd version)</button>
+
+    <button id="v3">Click Me (3rd version)</button>
+
+    <button id="tas">Twist & Shout</button>
+
+    <button id="l259">Click Me</button>
+
+
+
+    <!-- 260 -->
+    <button>CLICK</button>
+    <button>CLICK</button>
+    <button>CLICK</button>
+    <button>CLICK</button>
+
+    <h1>Click Me!</h1>
+    <h1>Click Me!</h1>
+    <h1>Click Me!</h1>
+
+
+
+
+    <!-- 262 -->
+    <h1>Form Events</h1>
+
+    <form action="/dogs" id="tweetForm">
+        <input type="text" name="username" placeholder="username">
+        <input type="text" name="tweet" placeholder="tweet">
+        <button>Post Tweet</button>
+    </form>
+
+    <h2>Tweets:</h2>
+    <ul id="tweets">
+
+    </ul>
+    <!-- 263 -->
+    <h1>Type Below: </h1>
+    <input type="text">
+
+    <!-- 264 -->
+    <section onclick="alert('section clicked')">
+        <p onclick="alert('paragraph clicked')">
+            I am a paragraph:
+            <button onclick="alert('button clicked')">Click</button>
+        </p>
+    </section>
+
+
+
+
+    <div id="container">
+        Click To Hide
+        <button id="changeColor">Change Color</button>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,4 +1,0 @@
-# WebDevelopmentBootcampAngLee
-# WebDevBcampCS
-# WebDevBcampCS
-# WebDevBcampCS

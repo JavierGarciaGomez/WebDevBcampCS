@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Web Developer Bootcamp: Section 4</title>
+</head>
+
+<body>
+    <h1> Web Developer Bootcamp: Section 5 </h1>
+    <h2> Lesson 44-46: HTML tables </h2>
+    <table border="1">
+        <tr>
+            <th> Name </th>
+            <th> Age </th>
+        </tr>
+        <tr>
+            <td> Ginebra </td>
+            <td> 11 </td>
+        </tr>
+        <tr>
+            <td> Azzurra </td>
+            <td> 11 </td>
+        </tr>
+    </table>
+
+    <p>Another way to differenciate between headers and content</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Age </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> Ginebra </td>
+                <td> 11 </td>
+            </tr>
+            <tr>
+                <td> Azzurra </td>
+                <td> 11 </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2> Exercise Pokemon table </h2>
+    <h3> First Gen Pokemon Chart </h3>
+    <table border="5">
+        <thead>
+            <tr>
+                <th> Image </th>
+                <th> Name </th>
+                <th> Type </th>
+                <th> Evolves into </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> <img height=100
+                        src="https://vignette.wikia.nocookie.net/pokemon/images/2/21/001Bulbasaur.png/revision/latest/scale-to-width-down/350?cb=20200620223551">
+                </td>
+                <td> Bulbasaur </td>
+                <td> Grass/Poison </td>
+                <td> <a href="https://pokemon.fandom.com/wiki/Ivysaur"> Ivysaur </a></td>
+            </tr>
+            <tr>
+                <td> <img height=100
+                        src="https://vignette.wikia.nocookie.net/pokemon/images/7/73/004Charmander.png/revision/latest/scale-to-width-down/350?cb=20200620223744">
+                </td>
+                <td> Charmander </td>
+                <td> Fire </td>
+                <td> <a href="https://pokemon.fandom.com/wiki/Charmeleon"> Charmeleon </a></td>
+            </tr>
+            <tr>
+                <td> <img height=100
+                        src="https://vignette.wikia.nocookie.net/pokemon/images/3/39/007Squirtle.png/revision/latest/scale-to-width-down/350?cb=20200620223922">
+                </td>
+                <td> Vamo a calmarno </td>
+                <td> Water </td>
+                <td> <a href="https://pokemon.fandom.com/wiki/Wartortle"> Wartotle </a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2> 46 Exercise </h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Subscription</th>
+                <th>Price</th>
+                <th>Support</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Free</td>
+                <td>Free</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Personal</td>
+                <td>$9.99</td>
+                <td>Weekdays</td>
+            </tr>
+            <tr>
+                <td>Business</td>
+                <td>$49.99</td>
+                <td>24/7</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+    <h2> Lesson 47-55: Forms, inputs, labels and validations </h2>
+
+    <!-- action: where the form send data to -->
+    <!-- method: what HTTP method (get/post) -->
+
+    <p> Different input types </p>
+    <input type="text">
+    <input type="color">
+    <input type="radio">
+    <input type="password">
+    <input type="number">
+
+    <br><br>
+
+    <form action="http:wikipedia.org" method="GET">
+        <!-- required to bake sure that is not empty -->
+        <label> Username: <input name="username" type="text" placeholder="username" required="true"> </label> <br>
+        <label> Email: <input name="email" type="email" placeholder="email" required="true"> </label> <br>
+        <label> Password: <input name="password" type="password" placeholder="password"> </label> <br>
+        <input type="submit">
+    </form>
+
+    <h2> Lesson 37: Dropdowns, radio buttons, text area </h2>
+
+    <p> Do you prefer cats or dogs? </p>
+
+    <form>
+        <!-- Radio buttons -->
+        <label for="dogs"> Dogs </label>
+        <input name="petChoice" id="dogs" type="radio" value="DOGS">
+        <label for="cats"> Cats </label>
+        <input name="petChoice" id="cats" type="radio" value="CATS">
+
+        <!-- Dropdown -->
+        <p> What's your favourite colour </p>
+        <select name="color">
+            <option>Red</option>
+            <option>Orange</option>
+            <option>Blue</option>
+        </select>
+        <!-- Text area -->
+        <br>
+        <p> Describe why you like pets</p>
+        <textarea name="desc" rows="4" cols="50" placeholder="Describe"></textarea>
+
+        <button>Go!</button>
+    </form>
+
+    <h2> Lesson 56: Exercise. Form </h2>
+    <h3>Register</h3>
+    <form>
+        <label>First Name: <input type="text" placeholder="John" required="true" name="firstName"> </label>
+        <label>Last Name: <input type="text" placeholder="Doe" required="true" name="lastName"> </label>
+        <br>
+        <label>Male <input type="radio" name="gender" value="male"> </label>
+        <label>Female <input type="radio" name="gender" value="female"> </label>
+        <label>Other <input type="radio" name="gender" value="other"> </label>
+        <br>
+        <label>Email: <input type="email" placeholder="your email" required="true" name="email"> </label>
+        <label>Password: <input type="password" placeholder="your password" required="true" name="password"
+                pattern=".{5,10}" title="5 to 10 characters"> </label>
+        <br>
+        <label>Birthday
+            <select name="day" placeholder="day">
+                <option>Day</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+            </select>
+            <select name="month" placeholder="month">
+                <option>Month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+            </select>
+            <select name="year" placeholder="year">
+                <option>Year</option>
+                <option>1960</option>
+                <option>1970</option>
+                <option>1980</option>
+                <option>1990</option>
+                <option>2000</option>
+                <option>2010</option>
+            </select>
+        </label>
+        <br>
+        <label> I agree to the terms and conditions <input type="checkbox" name=agreeTerms></label>
+        <input type="submit">
+
+    </form>
+
+
+</body>
+
+</html>

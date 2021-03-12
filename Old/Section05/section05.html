@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>About me</title>
+	<!-- External css -->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<!-- css in head -->
+	<style type="text/css">
+		h1{
+			color: orange;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- 44 three locations of css: inline, head or external -->
+	<h1> Section 4 </h1>
+	<h2> Lesson 44 </h2>
+	<h3> About me </h3>
+	<h4> My hobbies </h4>
+	<ul>
+		<!-- css inline -->
+		<li style="color: purple">Watching movies </li>
+		<li>Playing videogames </li>
+		<li>Reading </li>
+	</ul>
+
+	<h2> Lesson 45: color </h2>
+	<strong>
+		<p id="colorName">A tex with color name</p>
+		<p id="hex">A tex with hex color</p>
+		<p id="rgb">A tex with RGB color</p>
+		<p id="rgba">A tex with RGBA color</p>
+	</strong>
+
+	<h2> Lesson 46: border and background </h2>
+	<div id=bgColor>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	</div>
+
+	<h2> Lesson 48 && 50: selectors basic todo list</h2>
+	<!-- Selectors:
+		element selects all elements
+		id can just be used one time
+		class can be used for multiple elements 
+
+	-->
+
+	<ul>
+		<li id="idTest"> <input type="checkbox"> Walk Rusty </li>
+		<li class="classTest"> <input type="checkbox"> Buy groceries </li>
+		<li class="classTest"> <input type="checkbox"> Finishing CSS </li>
+	</ul>
+
+	<h2> Lesson 48 and 50: basic and advanced selectors</h2>
+	<!-- Selectors:
+		elementName element selects all elements
+		# id can just be used one time
+		. class can be used for multiple elements 
+		* selects all
+		descendants (ex. ul li a)
+		adjacent selector: elements that come after (ex. h5+p)
+		attribute selector (ex. a[href="http://www.facebook.com"])
+		nth type ex. ul:nth-of-type(3)
+
+	-->
+
+	<ul>
+		<li id="idTest"> <input type="checkbox"> Walk Rusty </li>
+		<li class="classTest"> <input type="checkbox"> Buy groceries </li>
+		<li class="classTest"> <input type="checkbox"> Finishing CSS </li>
+		<li> <a href="http://www.google.com">Google</a> </li>
+		<li> <a href="http://www.facebook.com">Facebook</a> </li>
+		<li class="classTest"> <input type="checkbox"> N of type </li>
+
+	</ul>
+	<h5> Adjacent selector </h5>
+	<p id=idAdj> first</p>
+	<p> second </p>
+
+
+</body>
+</html>
