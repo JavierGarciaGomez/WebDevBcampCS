@@ -14,16 +14,16 @@
         Edit campground
     </h1>
 
-    <form action="/campgrounds/" method="POST">
+    <form action="/campgrounds/<%=campground._id%>" ?_method="PUT" method="POST">
         <div>
             <label for="title">Title</label>
-            <input type="text" id="title" name="campground[title]">
+            <input type="text" id="title" name="campground[title]" value="<%=campground.title%>">
         </div>
         <div>
             <Label for="location">Location</Label>
-            <input type="text" id="loLation" name="campground[location]">
+            <input type="text" id="location" name="campground[location]" value="<%=campground.location%>">
         </div>
-        <button>Add Campground</button>
+        <button>Update Campground</button>
     </form>
     <!-- 410 -->
     <a href="/campgrounds/<%=campground._id%>">Back to campground</a>

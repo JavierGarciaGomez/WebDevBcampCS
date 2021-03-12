@@ -5,6 +5,8 @@ const express = require("express");
 const path = require("path");
 // 406
 const mongoose = require("mongoose");
+// 411
+const methodOverride = require("method-override");
 // 406
 const Campground = require("./models/campground");
 
@@ -31,6 +33,8 @@ app.set("views", path.join(__dirname, "views"));
 
 // 410 parse the request
 app.use(express.urlencoded({ extended: true }));
+// 411
+app.use(methodOverride("_method"));
 
 // 405
 // 405
@@ -65,7 +69,12 @@ app.get("/campgrounds/:id", async (req, res) => {
 // 411
 app.get("/campgrounds/:id/edit", async (req, res) => {
   const campground = await Campground.findById(req.params.id);
-  res.render("campgrounds/show", { campground });
+  res.render("campgrounds/edit", { campground });
+});
+
+// 411
+app.put("/campgrounds/:id", async (req, res) => {
+  res.send("It worked");
 });
 
 // 405
