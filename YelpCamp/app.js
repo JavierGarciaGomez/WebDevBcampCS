@@ -74,7 +74,18 @@ app.get("/campgrounds/:id/edit", async (req, res) => {
 
 // 411
 app.put("/campgrounds/:id", async (req, res) => {
-  res.send("It worked");
+  const { id } = req.params;
+  const campground = await Campground.findByIdAndUpdate(id, {
+    ...req.body.campground,
+  });
+  res.redirect(`/campgrounds/${campground._id}`);
+});
+
+// 412
+app.delete("/campgrounds/:id", async (req, res) => {
+  const { id } = req.params;
+  await Campground.findByIdAndDelete(id);
+  res.redirect("/campgrounds");
 });
 
 // 405
