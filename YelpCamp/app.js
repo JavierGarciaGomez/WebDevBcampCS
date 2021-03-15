@@ -9,6 +9,8 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 // 406
 const Campground = require("./models/campground");
+// 421
+const ejsMate = require("ejs-mate");
 
 // 406
 mongoose.connect("mongodb://localhost:27017/yelpcamp2", {
@@ -26,6 +28,8 @@ db.once("open", () => {
 
 // 405
 const app = express();
+// 421
+app.engine("ejs", ejsMate);
 
 // 405
 app.set("view engine", "ejs");
