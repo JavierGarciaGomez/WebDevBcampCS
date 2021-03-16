@@ -1,4 +1,4 @@
-// 405, 406, 408, 409, 410, 411
+// 405, 406, 408, 409, 410, 411, 440, 444, 445
 
 // 405
 const express = require("express");
@@ -11,6 +11,14 @@ const methodOverride = require("method-override");
 const Campground = require("./models/campground");
 // 421
 const ejsMate = require("ejs-mate");
+// 441
+const catchAsync = require("./utilities/catchAsync");
+// 442
+const ExpressError = require("./utilities/ExpressError");
+// 444
+const Joi = require("joi");
+// 445
+const { campgroundSchema } = require("./schemas");
 
 // 406
 mongoose.connect("mongodb://localhost:27017/yelpcamp2", {
@@ -40,56 +48,107 @@ app.use(express.urlencoded({ extended: true }));
 // 411
 app.use(methodOverride("_method"));
 
+// 445 Joi validation middleware
+const validateCampground = (req, res, next) => {
+  // if (!req.body.campground)
+  //   throw new ExpressError("Invalid Campground Data", 400);
+
+  const { error } = campgroundSchema.validate(req.body);
+  if (error) {
+    const msg = error.details.map((el) => el.message).join(",");
+    throw new ExpressError(msg, 400);
+  } else {
+    next();
+  }
+};
+
 // 405
 // 405
 app.get("/", (req, res) => {
   res.render("home");
 });
 
+// Render campgrounds
 // 408
-app.get("/campgrounds", async (req, res) => {
-  const campgrounds = await Campground.find();
-  res.render("campgrounds/index", { campgrounds });
-});
+app.get(
+  "/campgrounds",
+  catchAsync(async (req, res) => {
+    const campgrounds = await Campground.find();
+    res.render("campgrounds/index", { campgrounds });
+  })
+);
 
+// deliver form of new campground
 // 410
 app.get("/campgrounds/new", (req, res) => {
   res.render("campgrounds/new");
 });
 
-// 410
-app.post("/campgrounds", async (req, res) => {
-  const campground = new Campground(req.body.campground);
-  await campground.save();
-  res.redirect(`/campgrounds/${campground._id}`);
-});
+// Create a new campground
+// 410, 440, 441, 444
+app.post(
+  "/campgrounds",
+  validateCampground,
+  catchAsync(async (req, res) => {
+    const campground = new Campground(req.body.campground);
+    await campground.save();
+    res.redirect(`/campgrounds/${campground._id}`);
+  })
+);
 
 // 409
-app.get("/campgrounds/:id", async (req, res) => {
-  const campground = await Campground.findById(req.params.id);
-  res.render("campgrounds/show", { campground });
-});
+app.get(
+  "/campgrounds/:id",
+  catchAsync(async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    res.render("campgrounds/show", { campground });
+  })
+);
 
 // 411
-app.get("/campgrounds/:id/edit", async (req, res) => {
-  const campground = await Campground.findById(req.params.id);
-  res.render("campgrounds/edit", { campground });
-});
+app.get(
+  "/campgrounds/:id/edit",
+  catchAsync(async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    res.render("campgrounds/edit", { campground });
+  })
+);
 
-// 411
-app.put("/campgrounds/:id", async (req, res) => {
-  const { id } = req.params;
-  const campground = await Campground.findByIdAndUpdate(id, {
-    ...req.body.campground,
-  });
-  res.redirect(`/campgrounds/${campground._id}`);
-});
+// 411, 445
+app.put(
+  "/campgrounds/:id",
+  validateCampground(
+    catchAsync(async (req, res) => {
+      const { id } = req.params;
+      const campground = await Campground.findByIdAndUpdate(id, {
+        ...req.body.campground,
+      });
+      res.redirect(`/campgrounds/${campground._id}`);
+    })
+  )
+);
 
 // 412
 app.delete("/campgrounds/:id", async (req, res) => {
   const { id } = req.params;
   await Campground.findByIdAndDelete(id);
   res.redirect("/campgrounds");
+});
+
+// 442
+app.all("*", (req, res, next) => {
+  next(new ExpressError("Page Not Found", 404));
+});
+
+// 440, 442, 443 error handler
+app.use((err, req, res, next) => {
+  // const { statusCode = 500, message = "Default error message" } = err;
+  const { statusCode = 500 } = err;
+  if (!err.message) {
+    err.message = "New default error message";
+  }
+  res.status(statusCode).render("error", { err });
+  res.send("Something went wrong");
 });
 
 // 405
