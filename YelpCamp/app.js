@@ -1,4 +1,4 @@
-// 405, 406, 408, 409, 410, 411, 440, 444, 445
+// 405, 406, 408, 409, 410, 411, 440, 444, 445, 463
 
 // 405
 const express = require("express");
@@ -19,6 +19,8 @@ const ExpressError = require("./utilities/ExpressError");
 const Joi = require("joi");
 // 445
 const { campgroundSchema } = require("./schemas");
+// 463
+const Review = require("./models/review");
 
 // 406
 mongoose.connect("mongodb://localhost:27017/yelpcamp2", {
@@ -117,15 +119,14 @@ app.get(
 // 411, 445
 app.put(
   "/campgrounds/:id",
-  validateCampground(
-    catchAsync(async (req, res) => {
-      const { id } = req.params;
-      const campground = await Campground.findByIdAndUpdate(id, {
-        ...req.body.campground,
-      });
-      res.redirect(`/campgrounds/${campground._id}`);
-    })
-  )
+  validateCampground,
+  catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const campground = await Campground.findByIdAndUpdate(id, {
+      ...req.body.campground,
+    });
+    res.redirect(`/campgrounds/${campground._id}`);
+  })
 );
 
 // 412
@@ -134,6 +135,20 @@ app.delete("/campgrounds/:id", async (req, res) => {
   await Campground.findByIdAndDelete(id);
   res.redirect("/campgrounds");
 });
+
+// 463 review
+app.post(
+  "/campgrounds/:id/reviews",
+  catchAsync(async (req, res) => {
+    const campground = await Campground.findById(req.params.id);
+    const review = new Review(req.body.review);
+    campground.reviews.push(review);
+    await review.save();
+    await campground.save();
+    res.redirect(`/campgrounds/${campground._id}`);
+    console.log(campground);
+  })
+);
 
 // 442
 app.all("*", (req, res, next) => {
@@ -148,7 +163,7 @@ app.use((err, req, res, next) => {
     err.message = "New default error message";
   }
   res.status(statusCode).render("error", { err });
-  res.send("Something went wrong");
+  // res.send("Something went wrong");
 });
 
 // 405

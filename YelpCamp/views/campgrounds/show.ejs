@@ -1,9 +1,9 @@
-<!-- 408, 409, 410, 411, 421, 425, 429-->
+<!-- 408, 409, 410, 411, 421, 425, 429, 462, 464-->
 <!-- 421 -->
 <% layout('layouts/boilerplate')%>
     <div class="row">
         <div class="col-6 offset-3">
-            <div class="card mb-3" style="width: 18rem;">
+            <div class="card mb-3">
                 <img class="card-img-top" src="<%=campground.image%>" alt="campground picture">
                 <div class="card-body">
                     <h5 class="card-title">
@@ -28,8 +28,22 @@
                     <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Delete</button>
                     </form>
-                    </p>
                 </div>
+                <div class="card-footer text-muted">2 days ago</div>
             </div>
+            <h2>Write a review</h2>
+            <form class="mb-3 needs-validation" action="/campgrounds/<%=campground._id%>/reviews" method="POST"
+                novalidate>
+                <div class="mb-3">
+                    <label class="form-label" for="rating">Rating</label>
+                    <input class="form-range" type="range" min="1" max="5" name="" id="">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="body">Review</label>
+                    <textarea class="form-control" name="review[body]" id="body" cols="30" rows="10"
+                        required></textarea>
+                </div>
+                <button class="btn btn-success">Submit</button>
+            </form>
         </div>
     </div>
