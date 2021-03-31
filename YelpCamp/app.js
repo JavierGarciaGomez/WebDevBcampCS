@@ -1,4 +1,4 @@
-// 405, 406, 408, 409, 410, 411, 440, 444, 445, 463, 464, 465, 483
+// 405, 406, 408, 409, 410, 411, 440, 444, 445, 463, 464, 465, 483, 485, 486
 
 // 405
 const express = require("express");
@@ -11,6 +11,11 @@ const methodOverride = require("method-override");
 const Campground = require("./models/campground");
 // 421
 const ejsMate = require("ejs-mate");
+// 486
+const session = require("express-session");
+// 487 flash
+const flash = require("connect-flash");
+
 // 442
 const ExpressError = require("./utilities/ExpressError");
 // 444
@@ -24,11 +29,12 @@ const campgrounds = require("./routes/campgrounds");
 // 484
 const reviews = require("./routes/reviews");
 
-// 406
+// 406, 485
 mongoose.connect("mongodb://localhost:27017/yelpcamp2", {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 
 // 406
@@ -51,6 +57,33 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 // 411
 app.use(methodOverride("_method"));
+
+// 485 public directory
+// app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
+
+// 486 express-sessions
+const sessionConfig = {
+  secret: "a simple secret",
+  resave: false,
+  saveUninitialized: true,
+  // cookie will expire in a week
+  cookie: {
+    httpOnly: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+  },
+};
+
+app.use(session(sessionConfig));
+app.use(flash());
+
+// 487 passing flash params
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+});
 
 // 483 using the route
 app.use("/campgrounds", campgrounds);
