@@ -1,8 +1,8 @@
-// 496
+// 497
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
 
-// 496
+// 497
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema({
     }
 })
 
+/*
 userSchema.statics.findAndValidate = async function (username, password) {
     const foundUser = await this.findOne({ username });
     const isValid = await bcrypt.compare(password, foundUser.password);
@@ -25,5 +26,6 @@ userSchema.pre('save', async function (next) {
     this.password = await bcrypt.hash(this.password, 12);
     next();
 })
+*/
 
 module.exports = mongoose.model('User', userSchema);
