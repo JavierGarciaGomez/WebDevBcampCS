@@ -15,7 +15,6 @@ const ejsMate = require("ejs-mate");
 const session = require("express-session");
 // 487 flash
 const flash = require("connect-flash");
-
 // 442
 const ExpressError = require("./utilities/ExpressError");
 // 444
@@ -24,10 +23,17 @@ const Joi = require("joi");
 const { campgroundSchema, reviewSchema } = require("./schemas");
 // 463
 
+// 506
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user");
+
 // 483
-const campgrounds = require("./routes/campgrounds");
+const campgroundRoutes = require("./routes/campgrounds");
 // 484
-const reviews = require("./routes/reviews");
+const reviewRoutes = require("./routes/reviews");
+// 507
+const userRoutes = require("./routes/users");
 
 // 406, 485
 mongoose.connect("mongodb://localhost:27017/yelpcamp2", {
@@ -77,6 +83,12 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 app.use(flash());
+// 506
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // 487 passing flash params
 app.use((req, res, next) => {
@@ -85,10 +97,19 @@ app.use((req, res, next) => {
   next();
 });
 
+// 506 test register user
+app.get("/fakeUser", async (req, res) => {
+  const user = new User({ email: "colt@gmail.com", username: "colttt" });
+  const newUser = await User.register(user, "chicken");
+  res.send(newUser);
+});
+
 // 483 using the route
-app.use("/campgrounds", campgrounds);
+app.use("/campgrounds", campgroundRoutes);
 // 484 using the route
-app.use("/campgrounds/:id/reviews", reviews);
+app.use("/campgrounds/:id/reviews", reviewRoutes);
+// 507
+app.use("/", userRoutes);
 
 // 405
 // 405
