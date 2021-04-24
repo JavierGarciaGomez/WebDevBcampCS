@@ -1,11 +1,12 @@
-<!-- 408, 409, 410, 421, 427, 439 -->
+<!-- 408, 409, 410, 421, 427, 439, 527 -->
 <!-- 421 -->
 <% layout('layouts/boilerplate')%>
     <!-- 427 -->
     <div class="row">
         <h1 class="text-center">Create a campground</h1>
         <div class="col-6 offset-3">
-            <form class="needs-validation" action="/campgrounds" method="POST" novalidate>
+            <!-- 527 -->
+            <form class="needs-validation" action="/campgrounds" method="POST" novalidate enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input class="form-control" type="text" id="title" name="campground[title]" required>
@@ -39,6 +40,7 @@
                 </div>
                 <div class="mb-3">
                     <Iabel class="form-label" for="image">Image URL</Iabel>
+                    <input type="file" name="campground[image]" id="">
                     <input class="form-control" type="text" id="image" name="campground[image]">
                 </div>
                 <div class="mb-3">
