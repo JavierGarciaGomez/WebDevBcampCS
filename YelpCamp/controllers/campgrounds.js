@@ -1,4 +1,4 @@
-// 521
+// 521, 531, 534
 
 const Campground = require("../models/campground");
 
@@ -11,10 +11,19 @@ module.exports.renderNew = (req, res) => {
   res.render("campgrounds/new");
 };
 
+// 531
 module.exports.createCampground = async (req, res, next) => {
   const campground = new Campground(req.body.campground);
+  // 531
+  campground.images = req.files.map((file) => ({
+    url: file.path,
+    filename: file.filename,
+  }));
+  // 531
+  console.log(campground);
   campground.author = req.user._id;
   await campground.save();
+
   // flash added
   req.flash("success", "Succesfully made a new campground");
   res.redirect(`/campgrounds/${campground._id}`);
@@ -45,13 +54,20 @@ module.exports.renderEditForm = async (req, res) => {
   res.render("campgrounds/edit", { campground });
 };
 
+// 534
 module.exports.updateCampground = async (req, res) => {
   const { id } = req.params;
   const camp = await Campground.findByIdAndUpdate(id, {
     ...req.body.campground,
   });
+  const images = req.files.map((file) => ({
+    url: file.path,
+    filename: file.filename,
+  }));
+  camp.images.push(...images);
+  await camp.save();
   req.flash("success", "Succesfully updated a campground");
-  res.redirect(`/campgrounds/${campground._id}`);
+  res.redirect(`/campgrounds/${camp._id}`);
 };
 
 module.exports.deleteCampground = async (req, res) => {

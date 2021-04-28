@@ -1,10 +1,11 @@
-<!-- 411, 421, 428, 439 -->
+<!-- 411, 421, 428, 439, 534 -->
 <!-- 421 -->
 <% layout('layouts/boilerplate')%>
     <div class="row">
         <h1 class="text-center">Edit campground</h1>
         <div class="col-6 offset-3">
-            <form class="needs-validation" action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST">
+            <form class="needs-validation" action="/campgrounds/<%=campground._id%>?_method=PUT" method="POST"
+                enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
                     <input class="form-control" type="text" id="title" name="campground[title]"
@@ -43,9 +44,10 @@
 
                 </div>
                 <div class="mb-3">
-                    <Iabel class="form-label" for="image">Image URL</Iabel>
-                    <input class="form-control" type="text" id="image" name="campground[image]"
-                        value="<%=campground.image%>">
+                    <!-- 534 -->
+                    <Iabel class="form-label" for="image">Add Images</Iabel>
+                    <input type="file" name="image" id="" multiple>
+
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-success">Update Campground</button>

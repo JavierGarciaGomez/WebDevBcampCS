@@ -1,4 +1,11 @@
-// 405, 406, 408, 409, 410, 411, 440, 444, 445, 463, 464, 465, 483, 485, 486
+// 405, 406, 408, 409, 410, 411, 440, 444, 445, 463, 464, 465, 483, 485, 486, 529
+
+// 529
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
+console.log("*****529 ENV TEST", process.env.SECRET);
 
 // 405
 const express = require("express");
