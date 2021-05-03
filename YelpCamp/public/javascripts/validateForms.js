@@ -1,8 +1,11 @@
-// 485
+// 485, 535
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
   "use strict";
+
+  // 535
+  bsCustomFileInput.init();
 
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   var forms = document.querySelectorAll(".needs-validation");

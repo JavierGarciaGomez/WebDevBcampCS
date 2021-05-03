@@ -1,4 +1,4 @@
-<!-- 408, 409, 410, 421, 427, 439, 527 -->
+<!-- 408, 409, 410, 421, 427, 439, 527, 524 -->
 <!-- 421 -->
 <% layout('layouts/boilerplate')%>
     <!-- 427 -->
@@ -38,11 +38,16 @@
                         Looks good!
                     </div>
                 </div>
-                <div class="mb-3">
-                    <!-- <Iabel class="form-label" for="image">Image URL</Iabel> -->
-                    <input type="file" name="image" id="" multiple>
+                <!-- 535 -->
+                <div class="mb-3 custom-file">
 
+                    <label for="formFileMultiple" class="form-label custom-file-label">Upload Images</label>
+                    <input type="file" class="form-control" id="formFileMultiple" name="image" multiple required>
+                    <div class="invalid-feedback">
+                        This campground would look much better with a picture.
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     <button class="btn btn-success">Add Campground</button>
                 </div>
