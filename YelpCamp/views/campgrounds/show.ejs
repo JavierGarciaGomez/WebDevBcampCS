@@ -2,8 +2,12 @@
 <!-- 421 -->
 <% layout('layouts/boilerplate')%>
     <link rel="stylesheet" href="/stylesheets/stars.css">
+    <!-- 543 mapbox -->
+
     <div class="row">
         <div class="col-6">
+            <div id='map' style='width: 400px; height: 300px;'></div>
+
             <div id="campgroundCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <% campground.images.forEach((img, index)=> { %>
@@ -119,3 +123,12 @@
                         <%}%>
         </div>
     </div>
+
+    <!-- 543 map script -->
+    <script>
+
+        const campground = '<%-JSON.stringify(campground)%>'
+        const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+
+    </script>
+    <script src="/javascripts/showPageMap.js"></script>
